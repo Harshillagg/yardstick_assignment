@@ -6,11 +6,11 @@ import { ApiResponse } from "@/utils/ApiResponse";
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await dbConnect();
-
+    const { id } = await params;
     const body = await request.json();
     const { description, amount, category, date, type } = body;
 
@@ -23,7 +23,7 @@ export async function PUT(
       return ApiResponse(false, "Amount must be greater than 0", 400);
     }
 
-    if (!ObjectId.isValid(params.id)) {
+    if (!ObjectId.isValid(id)) {
       return ApiResponse(false, "Invalid transaction ID", 400);
     }
 
@@ -37,7 +37,7 @@ export async function PUT(
       type,
     };
 
-    const result = await Transaction.findByIdAndUpdate(params.id, updateData, {
+    const result = await Transaction.findByIdAndUpdate(id, updateData, {
       new: true,
     });
 
@@ -52,17 +52,18 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await dbConnect();
+    const { id } = await params;
 
-    if (!ObjectId.isValid(params.id)) {
+    if (!ObjectId.isValid(id)) {
       return ApiResponse(false, "Invalid transaction ID", 400);
     }
 
-    const result = await Transaction.findByIdAndDelete(params.id);
+    const result = await Transaction.findByIdAndDelete(id);
 
     if (!result) {
       return ApiResponse(false, "Transaction not found", 404);
