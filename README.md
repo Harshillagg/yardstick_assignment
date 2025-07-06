@@ -27,27 +27,27 @@ A comprehensive personal finance tracking application built with Next.js, React,
 ## 📦 Installation
 
 1. **Clone the repository**
-   \`\`\`bash
+   ```
    git clone <repository-url>
    cd complete-finance-tracker
-   \`\`\`
+   ```
 
 2. **Install dependencies**
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. **Set up environment variables**
    
    Update `.env.local` with your MongoDB connection string:
-   \`\`\`
+   ```
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/finance-tracker?retryWrites=true&w=majority
-   \`\`\`
+   ```
 
 4. **Run the development server**
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
