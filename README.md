@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Expense Tracker
 
-## Getting Started
+A comprehensive personal finance tracking application built with Next.js, React, TypeScript, MongoDB, and shadcn/ui.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Stage 1: Basic Transaction Tracking
+- ✅ **Add/Edit/Delete transactions** with full CRUD operations
+- ✅ **Transaction list view** with responsive design
+- ✅ **Monthly expenses bar chart** using Recharts
+- ✅ **Form validation** with error handling and success states
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Stage 2: Categories & Dashboard
+- ✅ **Predefined categories** with icons (16 categories including Indian-specific ones)
+- ✅ **Category-wise pie chart** with beautiful colors
+- ✅ **Dashboard with summary cards**: Total Balance, Expenses, Income, Transaction Count
+- ✅ **Recent transactions** display with category badges
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **UI Components**: shadcn/ui, Tailwind CSS
+- **Charts**: Recharts
+- **Database**: MongoDB with proper models
+- **Icons**: Lucide React
 
-## Learn More
+## 📦 Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   \`\`\`bash
+   git clone <repository-url>
+   cd complete-finance-tracker
+   \`\`\`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Set up environment variables**
+   
+   Update `.env.local` with your MongoDB connection string:
+   \`\`\`
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/finance-tracker?retryWrites=true&w=majority
+   \`\`\`
 
-## Deploy on Vercel
+4. **Run the development server**
+   \`\`\`bash
+   npm run dev
+   \`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🎨 UI/UX Features
+
+- **Modern Design**: Clean, professional interface
+- **Responsive Layout**: Mobile-first design approach
+- **Loading States**: Skeleton components and loading indicators
+- **Error Handling**: User-friendly error messages
+- **Success Feedback**: Confirmation messages for actions
+- **Hover Effects**: Interactive elements with smooth transitions
+
+## 🔧 API Endpoints
+
+- `GET /api/transactions` - Fetch all transactions
+- `POST /api/transactions` - Create new transaction
+- `PUT /api/transactions/[id]` - Update transaction
+- `DELETE /api/transactions/[id]` - Delete transaction
+- `GET /api/transactions/summary` - Get dashboard summary
+- `GET /api/transactions/monthly` - Get monthly expense data
+- `GET /api/transactions/categories` - Get category breakdown
+
